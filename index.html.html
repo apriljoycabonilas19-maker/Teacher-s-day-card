@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy World Teacher's Day!</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Fira Sans', sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: url('https://source.unsplash.com/1600x900/?books,education') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+    /* Audio Button Styles */
+    #playButton {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #4CAF50;
+      /* Green */
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    #playButton:hover {
+      background-color: #3e8e41;
+    }
+
+    /* Container holding the card */
+    .container {
+      position: relative;
+      width: 400px;
+      height: 500px;
+      perspective: 1200px;
+    }
+
+    /* Card styles */
+    .card {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: all 0.8s ease-in-out;
+      cursor: pointer;
+    }
+
+    .card.open {
+      transform: rotateY(180deg);
+    }
+
+    /* Front and Back face common styles */
+    .front,
+    .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* Front face styles */
+    .front {
+      background-color: rgba(255, 255, 255, 0.85);
+      color: #333;
+    }
+
+    .teacher-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .greeting {
+      font-size: 2em;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      font-family: 'Dancing Script', cursive;
+    }
+
+    /* Back face styles */
+    .back {
+      background-color: rgba(240, 230, 140, 0.85);
+      color: #555;
+      transform: rotateY(180deg);
+    }
+
+    .title {
+      font-size: 1.5em;
+      margin-bottom: 15px;
+      text-align: center;
+      color: #8B4513;
+    }
+
+    .dear {
+      font-style: italic;
+      margin-bottom: 5px;
+    }
+
+    .content {
+      font-size: 1em;
+      line-height: 1.4;
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px dashed rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.5);
+      overflow: auto;
+      height: 150px;
+    }
+
+    .from {
+      text-align: right;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    /* Decorations on the back */
+    .decorations {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+      font-size: 1.5em;
+      color: #D2691E;
+    }
+
+    .decorations i {
+      animation: sparkle 2s linear infinite;
+    }
+
+    .decorations i:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+
+    .decorations i:nth-child(3) {
+      animation-delay: 1s;
+    }
+
+    @keyframes sparkle {
+      0% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <button id="playButton"><i class="fas fa-music"></i> Play Audio</button>
+
+  <div class="container">
+    <div class="card">
+      <div class="front">
+        <img src="C:\Users\STUDENT USER\Pictures\Saved Pictures\1761006516518.jpg" alt="image" class="teacher-image">
+        <div class="greeting">
+          Happy World Teacher's Day!
+        </div>
+      </div>
+      <div class="back">
+        <div class="message">
+          <h3 class="title">HAPPY TEACHER'S DAY SIR  RANDY D. BELLO</h3>
+          <p class="dear">Dear Sir Randy,</p>
+          <p class="content" contenteditable="true">Happy Teacher's Day! Your dedication to teaching and your passion for your subject truly inspire us. Thank you for giving above and beyond to make learning engaging and meaningful. We appreciate your patience,your guidance,and your unwavering support. You've made made real difference in our lives.<br>With sincere gratitude,<br>APRIL JOY B. CABONILAS BSIS-2A.</p>
+          <p class="from" contenteditable="true">April</p>
+          <div class="decorations">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-book"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <audio id="audio" src="C:\Users\STUDENT USER\Music\David_Archuleta_-_Crush__Lyrics_(128k).m4a"></audio>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const audio = document.getElementById("audio");
+      const playButton = document.getElementById("playButton");
+      const card = document.querySelector('.card');
+      let isPlaying = false;
+
+      playButton.addEventListener("click", function () {
+        if (isPlaying) {
+          audio.pause();
+          playButton.innerHTML = '<i class="fas fa-music"></i> Play Audio';
+        } else {
+          audio.play();
+          playButton.innerHTML = '<i class="fas fa-pause"></i> Pause Audio';
+        }
+        isPlaying = !isPlaying;
+      });
+
+      audio.addEventListener('ended', function () {
+        isPlaying = false;
+        playButton.innerHTML = '<i class="fas fa-music"></i> Play Audio';
+      });
+
+      // Card open/close
+      card.addEventListener('click', function () {
+        card.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+
+</html>
+
